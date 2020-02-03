@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	int T, i, K, N, j, arr[20];
+	cin >> T;
+	for(i=0; i<T; i++){
+		cin >> K;
+		cin >> N;
+		for(j=0; j<N; j++){					//scan
+			cin >> arr[j];
+		}		
+		for(j=0; j<N; j++){					//find
+			if(K==arr[j])
+				cout << 1;
+			else
+				cout << -1;
+			break;
+		}
+	}
+}
