@@ -1,0 +1,50 @@
+/*Problem:
+Given an sorted array arr[] of N integers and a number K is given. 
+The task is to check if the element K is present in the array or not.
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int t, n, k, x;
+	cin >> t;							//test cases 
+	while(t--){
+		cin >> n;						//no of elements
+		cin >> k;						//k should be found 
+		int a[n], i;
+		for(i=0; i<n; i++){
+			cin >> a[i];
+			if(a[i]==k){
+				x=1;
+			}
+			else{
+				x=-1;
+			}
+		}
+		cout << x;
+	}
+}
+
+
+//#include<iostream>
+//using namespace std;
+//
+//int main(){
+//	int T, i, K, N, j, arr[20];
+//	cin >> T;
+//	for(i=0; i<T; i++){
+//		cin >> K;
+//		cin >> N;
+//		for(j=0; j<N; j++){					//scan
+//			cin >> arr[j];
+//		}		
+//		for(j=0; j<N; j++){					//find
+//			if(K==arr[j])
+//				cout << 1;
+//			else
+//				cout << -1;
+//			break;
+//		}
+//	}
+//}
