@@ -1,33 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int print(int a[], int n){
-	for(int i=0; i<n; i++){
-		cout<<a[i]<<" ";
-	}
-	cout<<"\n";
+void print(int arr[], int n){
+	for(int i=0; i<n; i++)
+		cout<<arr[i]<<" ";
+	cout<<endl;
+}
+
+void selection(int arr[], int n){
+    int temp=0, i;
+    for(i=0; i<n; i++){
+        int x=*min_element(arr+i, arr+n);
+        auto t = find(arr, arr+n, x);
+        int y=distance(arr, t);
+        if(arr[y]<arr[i]){
+            temp=arr[y];
+            arr[y]=arr[i];
+            arr[i]=temp;
+        }
+    }
+    print(arr, n);
 }
 
 int main(){
-		int n, g;
-		cout << "Enter the array size:";
-		cin>>n;
-		int a[n];
-		for(int k=0; k<n; k++){
-			cin>>a[k];
-		}
-		for(int i=0; i<n; i++){
-			int x=a[i], sm=a[i+1];
-			for(int j=i+2; j<n; j++){
-				if(sm>a[j]){
-					sm=a[j];
-					g=j;
-				}
-			}
-			if(a[i]>a[g]){
-				swap(a[i], a[g]);
-				print(a, n);
-			}
-		}
-		return 0;
+    int n, i;
+    cin>>n;
+    int arr[n];
+    for(i=0; i<n; i++){
+        cin>>arr[i];
+    }
+    selection(arr, n);
+    return 0;
 }
+// 64 25 12 22 11
