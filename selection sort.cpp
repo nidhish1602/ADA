@@ -32,4 +32,4 @@ int main(){
     selection(arr, n);
     return 0;
 }
-// 64 25 12 22 11
+//  64 25 12 22 11
