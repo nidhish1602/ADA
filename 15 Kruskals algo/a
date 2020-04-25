@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+//nm
 int find(int i,int vertices[])
 {
      while(vertices[i]!=i)
