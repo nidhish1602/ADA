@@ -1,1 +1,75 @@
+#include<iostream>
+using namespace std;
 
+int find(int i,int vertices[])
+{
+     while(vertices[i]!=i)
+        i = vertices[i];
+    return i;
+}
+int uni(int i,int j,int vertices[])
+{
+    if(i!=j)
+    {
+        vertices[i]=j;
+        return 1;
+    }
+    return 0;
+}
+void kruskal_algo(int arr[][50],int n)
+{
+    int u,v,ne = 1,i,j,a,b;
+    int vertices[n];
+    int min, mincost = 0;
+    for(i=0;i<n;i++)
+         vertices[i]=i;
+    while(ne < n)
+    {
+        min = 999;
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                if(arr[i][j]<min)
+                {
+                    min = arr[i][j];
+                     a=u = i;
+                    b=v = j;
+                }
+            }
+        }
+        u = find(u,vertices);
+        v = find(v,vertices);
+        if(uni(u,v,vertices))
+        {
+            cout<<ne<<" edge\t\t"<<a<<"\t\t"<<b<<"\t\t"<<min<<endl;
+            ne++;
+            mincost += min;
+        }
+        arr[a][b] = 999;
+    }
+    cout<<"Minimum cost : "<<mincost<<endl;
+}
+
+
+int main()
+{
+    int n,i,j;
+    cout<<"Enter no of vertices"<<endl;
+    cin>>n;
+    int arr[50][50];
+    int vertices[n];
+    cout<<"Enter the adjacency matrix"<<endl;
+    for (i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            cin>>arr[i][j];
+            if(arr[i][j]==0)
+                arr[i][j]=999;
+        }
+    }
+    cout<<"\t\tSource\t\tDestination\tCost"<<endl;
+    kruskal_algo(arr,n);
+    return 0;
+}
