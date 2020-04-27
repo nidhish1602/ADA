@@ -19,3 +19,4 @@ int main(){
 	func(x, y);
 	return 0;
 }
+
